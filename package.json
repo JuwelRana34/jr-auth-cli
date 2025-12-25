@@ -1,0 +1,42 @@
+{
+  "name": "jr-auth-cli",
+  "version": "1.0.1",
+  "description": "An awesome CLI to setup authentication instantly for your JavaScript/TypeScript projects using NextAuth.js, Firebase Auth, or custom JWT-based solutions.",
+  "main": "index.js",
+  "bin": {
+    "jr-auth": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "auth",
+    "cli",
+    "nextjs",
+    "better-auth",
+    "firebase"
+  ],
+  "author": "MD. JUWEL RANA",
+  "license": "ISC",
+  "type": "module",
+  "files": [
+    "index.js",
+    "templates"
+  ],
+  "dependencies": {
+    "chalk": "^5.6.2",
+    "commander": "^14.0.2",
+    "fs-extra": "^11.3.3",
+    "inquirer": "^13.1.0",
+    "ora": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "bcryptjs": "^3.0.3",
+    "better-auth": "^1.4.9",
+    "firebase": "^12.7.0",
+    "jsonwebtoken": "^9.0.3",
+    "next-auth": "^4.24.13"
+  }
+}
