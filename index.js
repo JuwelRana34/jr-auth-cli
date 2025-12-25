@@ -149,9 +149,23 @@ program
         const installCmd = getPackageManager();
         const installSpinner = ora(`${chalk.yellow('Installing dependencies:')} ${packagesToInstall}...`).start();
         
-        await execPromise(`${installCmd} ${packagesToInstall}`);
-        
-        installSpinner.succeed(chalk.green('Dependencies installed!'));
+        // 🔥 FIX: React 19 / Next.js 15 Conflict Solver
+        // কমান্ড তৈরি করা
+        let finalCommand = `${installCmd} ${packagesToInstall}`;
+
+        // যদি npm হয়, তাহলে --legacy-peer-deps যোগ করো
+        if (installCmd.includes('npm')) {
+            finalCommand += ' --legacy-peer-deps';
+        }
+
+        try {
+            await execPromise(finalCommand);
+            installSpinner.succeed(chalk.green('Dependencies installed!'));
+        } catch (installError) {
+            // যদি এরপরও ফেইল করে, ম্যানুয়ালি ইনস্টল করতে বলা
+            installSpinner.fail(chalk.red('Auto-install failed.'));
+            console.log(chalk.yellow(`\n⚠️  Please run this command manually:\n   ${finalCommand}`));
+        }
       }
 
       console.log('');
