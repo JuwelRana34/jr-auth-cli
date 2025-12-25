@@ -1,6 +1,6 @@
 {
   "name": "jr-auth-cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An awesome CLI to setup authentication instantly for your JavaScript/TypeScript projects using NextAuth.js, Firebase Auth, or custom JWT-based solutions.",
   "main": "index.js",
   "bin": {
